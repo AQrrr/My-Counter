@@ -16,10 +16,10 @@
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-        "lint": "eslint .",
+    "lint": "eslint .",
     "format": "prettier --write .",
-         "lint:fix": "eslint . --fix"
-  
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -61,15 +61,11 @@
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-        "eslint --fix",
-        "prettier --write"
-    ]
-}
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,css,md}": "prettier --write"
+  }
 }
