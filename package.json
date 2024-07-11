@@ -17,7 +17,9 @@
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
         "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+         "lint:fix": "eslint . --fix",
+  
   },
   "eslintConfig": {
     "extends": [
@@ -65,12 +67,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
+    "src/**/*.{js,jsx,ts,tsx}": [
+        "eslint --fix",
+        "prettier --write"
     ]
-  }
+}
 }
