@@ -14,8 +14,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-     "test:coverage": "react-scripts test --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "eject": "react-scripts eject",
+        "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -42,8 +44,8 @@
       "!**/node_modules/**"
     ],
     "transform": {
-  ".*\\.[jt]sx?$": "babel-jest"
-},
+      ".*\\.[jt]sx?$": "babel-jest"
+    },
     "coverageReporters": [
       "text-summary",
       "lcov",
@@ -51,6 +53,24 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^16.0.0"
+    "@testing-library/react": "^16.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }
