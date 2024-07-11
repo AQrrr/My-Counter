@@ -11,8 +11,16 @@ const Counter = () => {
   }, [count]);
 
   const decrement = () => {
-    setCount((prevCount) => prevCount - 1);
-    console.log('Decremented to', count - 1);
+    // Although try-catch is not necessary here, it is used to showcase error handling.
+    try {
+      if (count <= -1) {
+        throw new Error('Cannot decrement below -1');
+      }
+      setCount((prevCount) => prevCount - 1);
+      console.log('Decremented to', count - 1);
+    } catch (error) {
+      console.error('Error decrementing counter:', error);
+    }
   };
 
   return (
