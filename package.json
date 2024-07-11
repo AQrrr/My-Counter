@@ -18,7 +18,7 @@
     "eject": "react-scripts eject",
         "lint": "eslint .",
     "format": "prettier --write .",
-         "lint:fix": "eslint . --fix",
+         "lint:fix": "eslint . --fix"
   
   },
   "eslintConfig": {
